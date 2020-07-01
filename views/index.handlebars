@@ -1,1 +1,66 @@
-Testing Burger Route
+<div class = "columns">
+    <div class= "column is_three_quarters has-background-warning">
+        {{!-- <p class="bd-notification is info"></p> --}}
+        <h2>Available Burgers</h2>
+        <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+            <li>
+                {{burger_name}}
+                <button class='devour' data-id="{{id}}">Devour It!</button>
+            </li>
+            {{/unless}}
+        {{/each}}
+        </ul>
+{{!-- 
+        <h2>Devoured Burgers</h2>
+        <ul>
+        {{#each burgers}}
+            <li>
+                {{burger_name}}
+                <button class='devour' data-id="{{id}}">Devour It!</button>
+            </li>
+        {{/each}}
+        </ul> --}}
+
+        <form action"/api/burgers" method="POST">
+            <input type="text" name="burger_name">
+            <button> Add Burger</button>
+
+        </form>
+    </div>
+</div>
+<script>
+$("#create-burger-form").on("submit", (e) =>{
+    e.preventDefault();
+    const burgerData = {
+        burger_name: $('(name="burger_name")').val()
+    };
+
+    $.ajax({
+        url: "/api/burgers",
+       method: "POST",
+       data: burgerData 
+    }).then(() =>{
+        location.reload();
+    })
+    console.log( data );
+
+});
+
+$(".devour").on("click", function(){
+    const burgerId = $(this).data("id");
+    const updateRoute = "/api/burgers/" + burgerId;
+    const burgerData = {
+
+    };
+    console.log(burgerId)
+    $.ajax({
+        url:updateRoute,
+        method: "PUT",
+        data: {
+            devoured: false
+        }
+    })
+});
+</script>

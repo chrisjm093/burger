@@ -6,7 +6,7 @@ const burgerRoutes = require('./controllers/burgers_controller');
 const app = express();
 
 //defines port
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 //uses public dir to serve static files
 app.use(express.static('public'));
@@ -15,10 +15,11 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(burgerRoutes);
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-app.use(burgerRoutes);
 
 app.listen(PORT, ()=>{
     console.log('Listening now on localhost:' + PORT);
