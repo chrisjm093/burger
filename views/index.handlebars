@@ -23,18 +23,18 @@
         {{/each}}
         </ul> --}}
 
-        <form action"/api/burgers" method="POST">
+        <form id="create-burger-form" action="/api/burgers" method="POST">
             <input type="text" name="burger_name">
             <button> Add Burger</button>
-
         </form>
-    </div>
+
+    </div> 
 </div>
 <script>
 $("#create-burger-form").on("submit", (e) =>{
     e.preventDefault();
     const burgerData = {
-        burger_name: $('(name="burger_name")').val()
+        burger_name: $('[name="burger_name"]').val()
     };
 
     $.ajax({
