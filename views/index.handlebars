@@ -1,41 +1,55 @@
-<div class = "columns">
-    <div class= "column is_three_quarters">
-       <p class="bd-notification is-info">Placeholder</p>
-        <img src="https://66.media.tumblr.com/b3803fd5e8649f5ea17551231af7dce9/tumblr_mkkef66JDK1qlzc82o1_500.gif">
-        <div class="columns is-mobile">
-            <div class="column content">       
+<div class = "container">
+    <div class= "row">
+        <div class="col-sm-12">
+            <p id="page-title">Eat Da Burger!</p>
+        </div>
+    </div>
+    <div class="row">
+        <div id="burger-container" class="col-sm-12">
+            <img src="https://66.media.tumblr.com/b3803fd5e8649f5ea17551231af7dce9/tumblr_mkkef66JDK1qlzc82o1_500.gif">
+        </div>
+    </div>        
+</div>           
+<div class="container">  
+    <div class="row justify-content-center">   
+        
+            <div class="col-sm-5 burgers">   
+                
                 <h1>Available Burgers</h1>
+                
                 <ul>
                 {{#each burgers}}
                     {{#unless devoured}}
                     <li>
                         {{burger_name}}
-                        <button class='devour' data-id="{{id}}">Devour It!</button>
+                        <button data-id="{{id}}">Devour It!</button>
                     </li>
                     {{/unless}}
                 {{/each}}
                 </ul>
+                
                 <form id="create-burger-form" action="/api/burgers" method="POST">
                     <input type="text" name="burger_name">
-                    <button> Add Burger</button>
+                    <button class=""> Add Burger</button>
                 </form>
+
             </div>
+            <div class="col-sm-5 burgers">
+                
+                    <h1>Devoured Burgers</h1>
+                    <ul>
+                    {{#each burgers}}
+                        {{#if devoured}}
+                        <li>
+                            {{burger_name}}
+                        </li>
+                        {{/if}}
+                    {{/each}}
+                    </ul>
 
-            <div class="column content">
-                <h1>Devoured Burgers</h1>
-                <ul>
-                {{#each burgers}}
-                    {{#if devoured}}
-                    <li>
-                        {{burger_name}}
-                    </li>
-                    {{/if}}
-                {{/each}}
-                </ul>
-
-            </div> 
-        </div>
-    </div> 
+            </div>
+        
+    </div>           
 </div>
 <script>
 $("#create-burger-form").on("submit", (e) =>{
