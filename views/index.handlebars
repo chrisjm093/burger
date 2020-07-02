@@ -1,33 +1,40 @@
 <div class = "columns">
-    <div class= "column is_three_quarters has-background-warning">
-        {{!-- <p class="bd-notification is info"></p> --}}
-        <h2>Available Burgers</h2>
-        <ul>
-        {{#each burgers}}
-            {{#unless devoured}}
-            <li>
-                {{burger_name}}
-                <button class='devour' data-id="{{id}}">Devour It!</button>
-            </li>
-            {{/unless}}
-        {{/each}}
-        </ul>
-{{!-- 
-        <h2>Devoured Burgers</h2>
-        <ul>
-        {{#each burgers}}
-            <li>
-                {{burger_name}}
-                <button class='devour' data-id="{{id}}">Devour It!</button>
-            </li>
-        {{/each}}
-        </ul> --}}
+    <div class= "column is_three_quarters">
+       <p class="bd-notification is-info">Placeholder</p>
+        <img src="https://66.media.tumblr.com/b3803fd5e8649f5ea17551231af7dce9/tumblr_mkkef66JDK1qlzc82o1_500.gif">
+        <div class="columns is-mobile">
+            <div class="column content">       
+                <h1>Available Burgers</h1>
+                <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                    <li>
+                        {{burger_name}}
+                        <button class='devour' data-id="{{id}}">Devour It!</button>
+                    </li>
+                    {{/unless}}
+                {{/each}}
+                </ul>
+                <form id="create-burger-form" action="/api/burgers" method="POST">
+                    <input type="text" name="burger_name">
+                    <button> Add Burger</button>
+                </form>
+            </div>
 
-        <form id="create-burger-form" action="/api/burgers" method="POST">
-            <input type="text" name="burger_name">
-            <button> Add Burger</button>
-        </form>
+            <div class="column content">
+                <h1>Devoured Burgers</h1>
+                <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                    <li>
+                        {{burger_name}}
+                    </li>
+                    {{/if}}
+                {{/each}}
+                </ul>
 
+            </div> 
+        </div>
     </div> 
 </div>
 <script>
@@ -40,11 +47,10 @@ $("#create-burger-form").on("submit", (e) =>{
     $.ajax({
         url: "/api/burgers",
        method: "POST",
-       data: burgerData 
+       data: burgerData
     }).then(() =>{
         location.reload();
     })
-    console.log( data );
 
 });
 
@@ -54,13 +60,15 @@ $(".devour").on("click", function(){
     const burgerData = {
 
     };
-    console.log(burgerId)
+    
     $.ajax({
         url:updateRoute,
         method: "PUT",
         data: {
-            devoured: false
+            devoured: 1
         }
+    }).then( () =>{
+        location.reload();
     })
 });
 </script>

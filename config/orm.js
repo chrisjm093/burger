@@ -21,14 +21,13 @@ const orm = {
     },
 
 
-    updateOne(tableName, newValue, targetId, cb ){
-        // UPDATE tableName SET values WHERE id = targetId
-        connection.query( "UPDATE ?? SET ? WHERE id = ?", [tableName, newValue, targetId])
-        if(err) throw err;
-        cb( results );
+    updateOne(tableName, newValues, targetId, cb ){
+            // UPDATE tableName SET values WHERE id = targetId
+            connection.query( "UPDATE ?? SET ? WHERE id = ?", [tableName, newValues, targetId], (err, results) =>{
+            if(err) throw err;
+            cb( results );
+        });
     }
-
-
 };
 
 module.exports = orm;
