@@ -1,5 +1,5 @@
 <div class = "container">
-    <div class= "row">
+    <div class= "row justify-content-sm-center">
         <div class="col-sm-12">
             <p id="page-title">Eat Da Burger!</p>
         </div>
@@ -11,7 +11,7 @@
     </div>        
 </div>           
 <div class="container">  
-    <div class="row justify-content-center">   
+    <div class="row justify-content-sm-center">   
         
             <div class="col-sm-5 burgers">   
                 
@@ -22,7 +22,7 @@
                     {{#unless devoured}}
                     <li>
                         {{burger_name}}
-                        <button data-id="{{id}}">Devour It!</button>
+                        <button class="devour" data-id="{{id}}">Devour It!</button>
                     </li>
                     {{/unless}}
                 {{/each}}
@@ -30,7 +30,7 @@
                 
                 <form id="create-burger-form" action="/api/burgers" method="POST">
                     <input type="text" name="burger_name">
-                    <button class=""> Add Burger</button>
+                    <button> Add A Burger</button>
                 </form>
 
             </div>
@@ -42,6 +42,7 @@
                         {{#if devoured}}
                         <li>
                             {{burger_name}}
+                            <button class="return-it" data-id="{{id}}">Return It!</button>
                         </li>
                         {{/if}}
                     {{/each}}
@@ -51,38 +52,3 @@
         
     </div>           
 </div>
-<script>
-$("#create-burger-form").on("submit", (e) =>{
-    e.preventDefault();
-    const burgerData = {
-        burger_name: $('[name="burger_name"]').val()
-    };
-
-    $.ajax({
-        url: "/api/burgers",
-       method: "POST",
-       data: burgerData
-    }).then(() =>{
-        location.reload();
-    })
-
-});
-
-$(".devour").on("click", function(){
-    const burgerId = $(this).data("id");
-    const updateRoute = "/api/burgers/" + burgerId;
-    const burgerData = {
-
-    };
-    
-    $.ajax({
-        url:updateRoute,
-        method: "PUT",
-        data: {
-            devoured: 1
-        }
-    }).then( () =>{
-        location.reload();
-    })
-});
-</script>

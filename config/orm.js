@@ -12,7 +12,7 @@ const orm = {
 
 
     insertOne(tableName, values, cb){
-        //INSERT INTO tableName SET values;
+        
         connection.query("INSERT INTO ?? SET ?", [tableName, values], (err, results) =>{
             if(err) throw err;
             cb( results );
@@ -22,7 +22,7 @@ const orm = {
 
 
     updateOne(tableName, newValues, targetId, cb ){
-            // UPDATE tableName SET values WHERE id = targetId
+          
             connection.query( "UPDATE ?? SET ? WHERE id = ?", [tableName, newValues, targetId], (err, results) =>{
             if(err) throw err;
             cb( results );
