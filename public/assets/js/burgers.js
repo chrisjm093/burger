@@ -45,3 +45,14 @@ $(".return-it").on("click", function(){
         location.reload();
     })
 });
+
+$(".delete-it").on("click", function(){
+    const burgerId = $(this).data("id");
+    const deleteRoute = "/api/burgers/" + burgerId;
+
+    $.ajax( deleteRoute, {
+        type: "DELETE"
+    }).then( () =>{
+        location.reload();
+    })
+});

@@ -27,6 +27,19 @@ const orm = {
             if(err) throw err;
             cb( results );
         });
+    },
+    delete(tableName, condition, cb) {
+        let queryString = "DELETE FROM " + tableName;
+        queryString += " WHERE ";
+        queryString += condition;
+
+        connection.query( queryString, (err, result) =>{
+            if (err) {
+                throw err;
+            }
+            cb(result);
+
+        });
     }
 };
 

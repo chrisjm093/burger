@@ -10,8 +10,14 @@ const burger = {
         orm.insertOne( 'burgers', data, cb );
     },
 
-    update(  newValues, targetId, cb){
+    update(  newValues, targetId, cb ){
         orm.updateOne( 'burgers', newValues, targetId, cb )
+    },
+
+    delete( condition, cb ) {
+        orm.delete("burgers", condition, (res) =>{
+            cb(res);
+        })
     }
-};
+}
 module.exports = burger
