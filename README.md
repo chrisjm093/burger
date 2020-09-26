@@ -16,8 +16,7 @@ Table of Contents
 4. [License](#license)
 5. [Contributers](#contributers)
 6. [Tests](#tests)
-7. [GitHub Profile Picture](#developer)
-8. [GitHub Email](#contact)
+
 
 ---
 
@@ -76,13 +75,4 @@ Christopher Marti
 --
 ## chrisjm093  
 
-![GitHub Profile Photo](https://github.com/chrisjm093.png)
-
-
-
-
-
-#Contact: 
--- 
-chrisjm093@gmail.com
 
