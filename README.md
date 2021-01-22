@@ -18,6 +18,8 @@ In terminal: run "npm install" to install dependencies
 
 #Usage: 
 -- 
+In config/connection.js: add your mySQL password on line 10 to run locally.
+
 In terminal: run "node server.js". Application will be available on http://localhost:8080 in the browser.  Deployed application available at 
 https://da-burger-logger.herokuapp.com/
 
