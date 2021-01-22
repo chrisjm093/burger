@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const burgerRoutes = require('./controllers/burgers_controller');
-
+require('dotenv').config();
 //create server
 const app = express();
 
@@ -20,7 +20,6 @@ app.use(burgerRoutes);
 app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-
 app.listen(PORT, ()=>{
-    console.log('Listening now on localhost:' + PORT);
+    console.log('Listening now on http://localhost:' + PORT);
 });
