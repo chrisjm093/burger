@@ -1,12 +1,4 @@
-
-
 # Eat Da Burger
-
----
-
-
-
-
 
 Table of Contents  
 --
@@ -15,74 +7,26 @@ Table of Contents
 3. [Usage](#usage)
 4. [License](#license)
 5. [Contributers](#contributers)
-6. [Tests](#tests)
-7. [GitHub Profile Picture](#developer)
-8. [GitHub Email](#contact)
-
 ---
-
-
-
-
 #Description:  
 ---
 Eat Da Burger is a web application that utilizes a mySQL database to store burgers to devour. Devour the burgers, add burgers, return the burgers. 
 
-
-
-
-
 #Install: 
 --  
-no installation required
-
-
-
-
+In terminal: run "npm install" to install dependencies
 
 #Usage: 
 -- 
-Use for the fun of it!
+In config/connection.js: add your mySQL password on line 10 to run locally.
 
-
-
-
+In terminal: run "node server.js". Application will be available on http://localhost:8080 in the browser.  Deployed application available at 
+https://da-burger-logger.herokuapp.com/
 
 #License: 
 -- 
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 
-
-
-
-
 #Contributors: 
 -- 
-Christopher Marti
-
-
-
-
-
-#Tests:   
---
-
-
-
-
-
-
-#Developer:  
---
-## chrisjm093  
-
-![GitHub Profile Photo](https://github.com/chrisjm093.png)
-
-
-
-
-
-#Contact: 
--- 
-chrisjm093@gmail.com
-
+chrisjm093
